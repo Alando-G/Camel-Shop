@@ -39,8 +39,8 @@ export default {
 </script>
 
 <template>
-<h1>THE CANDY SHOP</h1>
-<div class ="centre">
+<h1>1vxn Candy Shop</h1>
+<div class ="Centre">
   <img v-bind:src="image" width="500" height="300">
 </div>
 <div class="centre">
