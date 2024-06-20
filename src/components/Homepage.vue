@@ -39,14 +39,14 @@ export default {
 </script>
 
 <template>
-<h1>1vxn Candy Shop</h1>
+<h1>1vxn  Shop</h1>
 <div class ="Centre">
   <img v-bind:src="image" width="500" height="300">
 </div>
 <div class="centre">
   <a :href="url">Vue JS Practice</a>
   <h3>Milk, White, dark</h3>
-  <h5>A wide variety of fine snacks, sweets and chocolate perfect for all ocassions</h5>
+  <h5>A wide variety of fine snacks</h5>
 </div>
 <div class="centre">
   <u1>
