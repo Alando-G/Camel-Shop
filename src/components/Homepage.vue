@@ -41,7 +41,7 @@ export default {
 <template>
 <v-card
     class="mx-auto"
-    width="1100"
+    width="1250"
   >
     
     <v-carousel>
@@ -83,7 +83,7 @@ We pride ourselves on offering top-quality products and exceptional customer ser
       <v-card
         subtitle="This is a card subtitle"
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus!"
-        title="This is a title"
+        title="James dean"
       ></v-card>
 
       <div class="text-center text-caption">Using Props Only</div>
@@ -96,11 +96,11 @@ We pride ourselves on offering top-quality products and exceptional customer ser
         </template>
 
         <template v-slot:subtitle>
-          Fred mutura
+          Review
         </template>
 
         <template v-slot:text>
-          Leonel Mtungi
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus!
         </template>
       </v-card>
 
@@ -110,7 +110,7 @@ We pride ourselves on offering top-quality products and exceptional customer ser
     <v-col cols="12" md="4">
       <v-card>
         <v-card-item>
-          <v-card-title>This is a title</v-card-title>
+          <v-card-title>Peter Oluuu</v-card-title>
 
           <v-card-subtitle>This is a card subtitle</v-card-subtitle>
         </v-card-item>
