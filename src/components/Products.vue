@@ -86,6 +86,8 @@
 
 </template>
 <script>
+import {mapActions, mapGetters} from 'vuex'
+
 export default {
     data(){
         return{
@@ -102,7 +104,7 @@ export default {
                 itemNumber: 27466,
                 itemName : "Lollipop",
                 itemPrice : 10,
-                itemQuantity : 0,
+                itemQuantity : 15,
                 itemImage: '../images/jamie-albright-AHF_ZktTL6Q-unsplash.jpg',
                 description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
 
@@ -111,8 +113,8 @@ export default {
             {
                 itemNumber: 27466,
                 itemName : "Chocolates",
-                itemPrice : 10,
-                itemQuantity : 0,
+                itemPrice : 50,
+                itemQuantity : 100,
                 itemImage: '../images/side-view-decorated-chocolate-candy-black-gold-box.jpg',
                 description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
 
@@ -121,8 +123,8 @@ export default {
             {
                 itemNumber: 27466,
                 itemName : "Crisps",
-                itemPrice : 10,
-                itemQuantity : 4,
+                itemPrice : 45,
+                itemQuantity : 500,
                 itemImage: '../images/27373.jpg',
                 description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
 
@@ -131,8 +133,8 @@ export default {
             {
                 itemNumber: 27466,
                 itemName : "Popcorn",
-                itemPrice : 10,
-                itemQuantity : 4,
+                itemPrice : 20,
+                itemQuantity : 10,
                 itemImage: '../images/2207.i305.026.S.m005.c13.realistic popcorn poster.jpg',
                 description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
 
@@ -151,7 +153,7 @@ export default {
             {
                 itemNumber: 27466,
                 itemName : "Dried Fruit",
-                itemPrice : 10,
+                itemPrice : 15,
                 itemQuantity : 4,
                 itemImage: '../images/various-dried-fruits-dates-plums-raisins-figs.jpg',
                 description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
@@ -160,7 +162,7 @@ export default {
             {
                 itemNumber: 27466,
                 itemName : "Macaroons",
-                itemPrice : 10,
+                itemPrice : 30,
                 itemQuantity : 4,
                 itemImage: '../images/delicious-macarons-table.jpg',
                 description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
@@ -180,7 +182,7 @@ export default {
             {
                 itemNumber: 27466,
                 itemName : "Fruit Juice",
-                itemPrice : 10,
+                itemPrice : 50,
                 itemQuantity : 4,
                 itemImage: '../images/orange-juice-with-mint-orange-lime-lemon-strawberry-cherry-coconut-grapefruit-goblet-brick-stone-wooden-surface-side-view.jpg',
                 description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
@@ -206,6 +208,11 @@ export default {
             this.total -= product.itemPrice
         }
 
+    },
+    computed: {
+        ...mapGetters({
+            cartItems: 'cart'
+        })
     }
 }
 </script>
