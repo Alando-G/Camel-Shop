@@ -1,72 +1,32 @@
 <template>
     <h1>Confectionery</h1>
-    <v-card
-        class="mx-auto"
-        width="800"
-        >
-        <v-card-text class="bg-surface-light pt-4">
-                <v-card-title>Cart
-                    {{ total }}
-                    <v-btn
-                    color="deep-purple-lighten-2"
-                    text="Checkout"
-                ></v-btn>
-            </v-card-title>
-            <v-row>
-                <v-col cols="12" md="4"  v-for="product in cartItems" :key=product>     
-                    <v-card
-                        class="mx-auto my-12"
-                        max-width="374"
-                    >
-                        <v-img
-                            height="250"
-                            :src="product.itemImage"
-                            cover
-                        ></v-img>
-
-                        <v-card-item>
-                            <v-card-title>{{product.itemName}}</v-card-title>
-                        </v-card-item>
-
-                        <v-card-text>
-                            <div class="my-4 text-subtitle-1">{{product.itemPrice}}</div>
-                        </v-card-text>
-
-                        <v-divider class="mx-4 mb-1"></v-divider>
-                        <v-card-actions>
-                            <v-btn
-                                color="deep-purple-lighten-2"
-                                text="Remove"
-                                block
-                                border
-                                @click="removeFromCart(product)"
-                            ></v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </v-card-text>
-  </v-card>
+    <v-btn
+        color="deep-purple-lighten-2"
+        text="Manage Products"
+        to = "/manage_products"
+    ></v-btn>
+  
+    <!-- Products section -->
     <div>
         <v-row>
-        <v-col cols="12" md="4"  v-for="product in stockDetails" :key=product>     
+        <v-col cols="12" md="4"  v-for="product in stock" :key=product>     
             <v-card
                 class="mx-auto my-12"
                 max-width="374"
             >
                 <v-img
                     height="250"
-                    :src="product.itemImage"
+                    :src="product.productImagePath"
                     cover
                 ></v-img>
 
                 <v-card-item>
-                    <v-card-title>{{product.itemName}}</v-card-title>
+                    <v-card-title>{{product.productName}}</v-card-title>
                 </v-card-item>
 
                 <v-card-text>
-                    <div class="my-4 text-subtitle-1">{{product.itemPrice}}</div>
-                    <div>{{ product.description }}</div>
+                    <div class="my-4 text-subtitle-1">{{product.productPrice}}</div>
+                    <div>{{ product.productDescription }}</div>
                 </v-card-text>
 
                 <v-divider class="mx-4 mb-1"></v-divider>
@@ -86,133 +46,28 @@
 
 </template>
 <script>
-import {mapActions, mapGetters} from 'vuex'
+    import { mapActions, mapGetters } from 'vuex'
 
-export default {
-    data(){
-        return{
-            stockDetails : [
-            {
-                itemNumber: 1,
-                itemName : "Sweets",
-                itemPrice : 5,
-                itemQuantity : 0,
-                itemImage: '../images/customerbox-aXq1oCCjlVM-unsplash.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-            },
-            {
-                itemNumber: 27466,
-                itemName : "Lollipop",
-                itemPrice : 10,
-                itemQuantity : 15,
-                itemImage: '../images/jamie-albright-AHF_ZktTL6Q-unsplash.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
+    export default {
+        data(){
+            return{
+               
             }
-            ,
-            {
-                itemNumber: 27466,
-                itemName : "Chocolates",
-                itemPrice : 50,
-                itemQuantity : 100,
-                itemImage: '../images/side-view-decorated-chocolate-candy-black-gold-box.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
-            }
-            ,
-            {
-                itemNumber: 27466,
-                itemName : "Crisps",
-                itemPrice : 45,
-                itemQuantity : 500,
-                itemImage: '../images/27373.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
-            }
-            ,
-            {
-                itemNumber: 27466,
-                itemName : "Popcorn",
-                itemPrice : 20,
-                itemQuantity : 10,
-                itemImage: '../images/2207.i305.026.S.m005.c13.realistic popcorn poster.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
-            }
-            ,
-            {
-                itemNumber: 27466,
-                itemName : "Bites",
-                itemPrice : 10,
-                itemQuantity : 4,
-                itemImage: '../images/images.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
-            }
-            ,
-            {
-                itemNumber: 27466,
-                itemName : "Dried Fruit",
-                itemPrice : 15,
-                itemQuantity : 4,
-                itemImage: '../images/various-dried-fruits-dates-plums-raisins-figs.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
-            },
-            {
-                itemNumber: 27466,
-                itemName : "Macaroons",
-                itemPrice : 30,
-                itemQuantity : 4,
-                itemImage: '../images/delicious-macarons-table.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
-            }
-            ,
-            {
-                itemNumber: 27466,
-                itemName : "Chewing gum",
-                itemPrice : 10,
-                itemQuantity : 4,
-                itemImage: '../images/Screenshot 2024-06-24 091001.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
-            }
-            ,
-            {
-                itemNumber: 27466,
-                itemName : "Fruit Juice",
-                itemPrice : 50,
-                itemQuantity : 4,
-                itemImage: '../images/orange-juice-with-mint-orange-lime-lemon-strawberry-cherry-coconut-grapefruit-goblet-brick-stone-wooden-surface-side-view.jpg',
-                description: "Our sweets are wonderfully crafted by the best ingrdients to bring deliciousness to your parties"
-
-            }
-            ],
-            total: 0,
-
-            cartItems: [],
-
-        }
-    },
-    methods:{
-        calculateTotal(itemPrice){
-            this.total += itemPrice
         },
-        addToCart(product){
-            this.cartItems.push(product)
-            this.calculateTotal(product.itemPrice)
-        },
-        removeFromCart(product){
-            this.cartItems.pop(product)
-            this.total -= product.itemPrice
-        }
+        methods:{
+            ...mapActions([
+                "addToCart",
+                "fetchProducts" // action to trigger fetching products from api
+            ])
 
-    },
-    computed: {
-        ...mapGetters({
-            cartItems: 'cart'
-        })
+        },
+        computed: {
+            ...mapGetters({
+                stock: 'stock'
+            })
+        },
+        created() {
+            this.fetchProducts() // retrieve the products when the component is called
+        }
     }
-}
 </script>

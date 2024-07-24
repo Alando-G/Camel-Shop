@@ -1,12 +1,10 @@
 <template>
-<h1>Cart</h1>
-<v-card
-        class="mx-auto"
-        width="800"
+    <h1>Cart</h1>
+    <v-card class="mx-auto" width="800"
         >
         <v-card-text class="bg-surface-light pt-4">
                 <v-card-title>Cart
-                    {{ total }}
+                   {{ total }}
                     <v-btn
                     color="deep-purple-lighten-2"
                     text="Checkout"
@@ -47,25 +45,26 @@
             </v-row>
         </v-card-text>
   </v-card>
+
 </template>
-
 <script>
-import { mapActions, mapGetters } from 'vuex'
+    import { mapActions, mapGetters } from 'vuex'
+    export default {
+        data(){
+            return{
 
-export default {
-    
-    data(){
-        return{
-
+            }
+        },
+        methods: {
+            ...mapActions([
+                'removeFromCart'
+            ])
+        },
+        computed: {
+            ...mapGetters({
+                cartItems: 'cart',
+                total: 'totalCartAmount'
+            })
         }
-    },
-    methods: {
-        
-    },
-    computed: {
-        ...mapGetters({
-            cartItems: 'cart'
-        })
     }
-}
 </script>
